@@ -13,6 +13,7 @@
   "author": "Adroaldo de Andrade <adroaldo@fiddus.com.br>",
   "license": "ISC",
   "devDependencies": {
-    "grunt": "^0.4.5"
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.0"
   }
 }
