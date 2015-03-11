@@ -5,6 +5,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.initConfig({
 
@@ -33,6 +35,51 @@ module.exports = function (grunt) {
                 'build'
             ]
         },
+
+        // Connect application
+        connect: {
+            options: {
+                port: 8000,
+                livereload: 35729,
+                hostname: 'localhost'
+            },
+            livereload: {
+                options: {
+                    open: true,
+                    base: [
+                        'build/'
+                    ],
+                }
+            }
+        },
+
+        // Watch and live reload code
+        watch: {
+            js: {
+                files: [
+                    './js/**/*.js'
+                ],
+                options: {
+                    livereload: true
+                },
+                tasks: ['jshint', 'copy:build']
+            },
+            styles: {
+                files: [
+                    './css/**/*.css'
+                ],
+                options: {
+                    livereload: true
+                },
+                tasks: ['copy:build']
+            },
+            html: {
+                files: ['./index.html'],
+                options: {
+                    livereload: true
+                },
+                tasks: ['copy:build']
+            }
         }
 
     });
