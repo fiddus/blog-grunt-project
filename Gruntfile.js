@@ -90,4 +90,10 @@ module.exports = function (grunt) {
         'copy'
     ]);
 
+    grunt.registerTask('serve', [
+        'build',
+        'connect:livereload',
+        'watch'
+    ]);
+
 };
