@@ -3,6 +3,7 @@
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.initConfig({
 
@@ -11,6 +12,19 @@ module.exports = function (grunt) {
             all: [
                 './js/**/*.js'
             ]
+        },
+
+        // Copy files to a desired location
+        copy: {
+            build: {
+                files: [
+                    {expand: false, src: ['index.html'], dest: 'build/'},
+                    {expand: true, src: ['js/**'], dest: 'build/'},
+                    {expand: true, src: ['css/**'], dest: 'build/'},
+                    {expand: true, src: ['img/**'], dest: 'build/'}
+                ]
+            }
+        },
         }
 
     });
