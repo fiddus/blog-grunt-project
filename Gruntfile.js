@@ -4,6 +4,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.initConfig({
 
@@ -24,6 +25,13 @@ module.exports = function (grunt) {
                     {expand: true, src: ['img/**'], dest: 'build/'}
                 ]
             }
+        },
+
+        // Remove files on directories on call
+        clean: {
+            build: [
+                'build'
+            ]
         },
         }
 
